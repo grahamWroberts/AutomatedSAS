@@ -1,4 +1,5 @@
 AutomatedSAS - V0.1
+
 Author: Graham Roberts
 
 Associated paper (preprint): Roberts G, Nieh M-P, Ma A, Yang Q. Automated Structure Analysis of Small Angle Scattering Data via Machine Learning. ChemRxiv. 2024; doi:10.26434/chemrxiv-2024-ggnch
