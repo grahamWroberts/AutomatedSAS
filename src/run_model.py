@@ -1,0 +1,179 @@
+import numpy as np
+import pandas as pd
+import sys
+from os.path import join as join_path
+sys.path.append('..')
+import loaders
+import argparse
+from sklearn.svm import SVC
+from sklearn.metrics import classification_report as CR
+from sklearn.metrics import accuracy_score as AS
+from matplotlib import pyplot as plt
+from sklearn.kernel_ridge import KernelRidge as KRR
+from sklearn.metrics import r2_score
+from sklearn.metrics import mean_absolute_percentage_error as MAPE
+import hierarchical as hier
+def parse_args():
+   parser = argparse.ArgumentParser()
+   parser.add_argument('--targets', default = ['cylinder', 'disk', 'sphere', 'cs_cylinder', 'cs_disk', 'cs_sphere'], nargs = '+')
+   parser.add_argument('--params', default = ['radius', 'length', 'shell', 'aspect_ratio', 'shell_ratio'])
+   parser.add_argument('--datadir', default = '../example_data', help = 'the directory where the raw data are stored')
+   parser.add_argument('--configdir', default = '../configs', help = 'the directory where the configuration files for the classifier and regressor are stored')
+   parser.add_argument('--resultsdir', default = '../results', help = 'the directory where results and logs will be stored')
+   parser.add_argument('--projection', type=bool, default=False)
+   parser.add_argument('--logfile', default='hierarchical_log.csv')
+   parser.add_argument('--struct_strings_file', default="hierarchical_structure2.txt")
+   parser.add_argument('--experimental', type=bool, default = False)
+   parser.add_argument('--reg_file', type = str, default='krr_hyperparameters.txt')
+   parser.add_argument('--extrapolation', type=bool,default=True)
+   parser.add_argument('--evaluate_file', type=str, default=None, help='a file containing curves to predict, this is where to pass new curves without labels to evaluate')
+   return(parser.parse_args())
+   
+def construct_regressor(pfile, gamma_norm):
+    rdict = {}
+    pdict = parse_pfile(pfile)
+    for t in pdict.keys():
+        if t not in rdict.keys():
+            rdict[t] = {}
+        for p in pdict[t].keys():
+            if pdict[t][p]['kernel'] == 'polynomial':
+                regressor = KRR(alpha = pdict[t][p]['alpha'], gamma = pdict[t][p]['gamma']/gamma_norm, degree = pdict[t][p]['degree'], kernel = pdict[t][p]['kernel'], coef0 = pdict[t][p]['coef0'])
+            else:
+                regressor = KRR(alpha = pdict[t][p]['alpha'], gamma = pdict[t][p]['gamma']/gamma_norm, kernel = pdict[t][p]['kernel'].lower(), coef0 = pdict[t][p]['coef0'])
+            rdict[t][p] = regressor
+    return(rdict)
+
+def parse_pfile(pfile):
+   data_conversions = {'alpha':float,'gamma':float,'kernel':str,'degree':int,'coef0':float}
+   pdict = {}
+   infile = open(pfile, 'r')
+   for line in infile.readlines():
+       tokens = line.split()
+       ps = {}
+       for i in range(len(tokens)):
+           t = tokens[i]
+           if t.replace('-','').strip() == 'target':
+               targ = tokens[i+1].strip()
+           elif t.replace('-','').strip() == 'param':
+               p = tokens[i+1].strip()
+           elif t[:2] == '--':
+               pname = tokens[i].replace('-','').strip()
+               pf = data_conversions[pname]
+               ps[pname] = pf(tokens[i+1])
+       if targ not in pdict.keys():
+           pdict[targ] = {}
+       pdict[targ][p]=ps
+   return(pdict)
+
+def train_all_regression(train_curves, train_params, regressors):
+    for t in train_params.keys():
+        for p in regressors[t].keys():
+            regressors[t][p] = regressors[t][p].fit(train_curves[t], train_params[t][p])
+    return(regressors)
+
+#This is a helper function definining the specific structure of this hierarchical classifier
+#in 1.0 this functionality will be offloaded onto a much more rational json structure
+def hierarchical_definition():
+    decision1 = {0:0,1:0,2:1,3:0,4:0,5:1}
+    decision2 = {2:0,5:1}
+    decision3 = {0:0,1:0,3:1,4:1}
+    decision4 = {0:0,1:1}
+    decision5 = {3:0,4:1}
+    decisions = [decision1, decision2, decision3, decision4, decision5]
+    hierarchical_map = [{0:2,1:1},{0:'2',1:'5'},{0:3,1:4},{0:'0',1:'1'},{0:'3',1:'4'}]
+    return(hierarchical_map, decisions)
+
+def compare_regression(regressors, targets, mapped_labs, mapped_inds, mapped_keys, dbd, preds, test_curves, test_params, tmap, args):
+    for i in range(len(targets)):
+        t = targets[i]
+        examples = np.equal(mapped_labs, i)
+        predicted = np.equal(preds, i)
+        correct_inds = np.where(np.logical_and(examples, predicted))[0]
+        incorrect_inds = np.where(np.logical_and(examples, np.logical_not(predicted)))[0]
+        correct_file = open(join_path(args.resultsdir,'correct_%s.csv'%(targets[i])), 'w')
+        correct_regs = {}
+        original_correct = tmap[mapped_inds[correct_inds].astype(int)]
+        correct_curves = test_curves[args.targets[i]][original_correct]
+        for p in regressors[t].keys():
+            correct_regs[p] = regressors[t][p].predict(correct_curves)
+        for oci in range(len(original_correct)):
+            oc = original_correct[oci]
+            correct_file.write('%d TRUE %s REGRESSED %s\n'%(oc, ' '.join(['%s:%f'%(p, test_params[t][p][oc]) for p in test_params[t].keys()]), ' '.join(['%s:%f'%(p, correct_regs[p][oci]) for p in correct_regs.keys()])))
+        correct_file.close()
+        incorrect_file = open(join_path(args.resultsdir, 'incorrect_%s'%(t)), 'w')
+        original_incorrect = tmap[mapped_inds[incorrect_inds].astype(int)]
+        incorrect_ck = mapped_keys[incorrect_inds]
+        incorrect_curves = test_curves[args.targets[i]][original_incorrect]
+        for ici in range(incorrect_inds.shape[0]):
+            regression = {}
+            ptarg = args.targets[preds[incorrect_inds[ici]].astype(int)]
+            for p in regressors[ptarg].keys():
+                regression[p] = regressors[ptarg][p].predict(np.reshape(incorrect_curves[ici], (1,-1)))
+            incorrect_file.write('%d TRUE %s REGRESSED %s %s %s %s\n'%(original_incorrect[ici], ' '.join(['%s:%f'%(p, test_params[t][p][original_incorrect[ici]]) for p in test_params[t].keys()]), ptarg, ' '.join(['%s:%f'%(p, regression[p]) for p in regression.keys()]), incorrect_ck[ici], ' '.join(['%0.4f'%(dis) for dis in dbd[incorrect_ck[ici]]])))
+    return
+
+def evaluate_regression(curves, classes, regressors, args):
+    predictions = []
+    for i in range(curves.shape[0]):
+        t = classes[i]
+        regs = regressors[t]
+        c = curves[i].reshape(1,-1)
+        predictions += [{p: regs[p].predict(c) for p in regs.keys()}]
+    return(predictions)
+
+
+# REORDER this helper function sets a list back to the original order, because the way the hierarchical model shifts the order.
+# this is a stop gap in v 1.0 I've already smoothed this over and made it easier to use. and the user never needs to acknowledge the ordering or reordering.
+def reorder(vals, mapped_inds):
+    return(vals[np.argsort(mapped_inds)])
+
+
+def main():
+    args = parse_args()
+    targets = args.targets
+    qs = np.loadtxt(join_path(args.datadir, 'q_200.txt'),dtype=str)
+    q = loaders.load_q(args.datadir)
+    train_curves = loaders.load_all_curves(targets, q, args.datadir)
+    test_curves = loaders.load_all_curves(args.targets, q, args.datadir, prefix = 'TEST')
+    train_params = loaders.load_all_params(targets, args.params, args.datadir)
+    test_params = loaders.load_all_params(targets, args.params, args.datadir, prefix = 'TEST')
+
+    ssf = open(join_path(args.configdir, args.struct_strings_file), 'r')
+    struct_strings = ssf.readline().split()
+
+    gamma_norm = train_curves[args.targets[0]].shape[1]
+    regressors = construct_regressor(join_path(args.configdir, args.reg_file), gamma_norm)
+    regressors = train_all_regression(train_curves, train_params, regressors)
+    temp_ck_dict = loaders.load_all_params(args.targets, ['candidate key'], args.datadir, prefix='TEST')
+    ck_dict = {t : temp_ck_dict[t]['candidate key'] for t in args.targets}
+    ck, _ = loaders.concatenate_curves(ck_dict)
+    
+
+    curves, labels, _ = loaders.unravel_dict(train_curves, args.targets)
+    tcurves, tlabels, tmap = loaders.unravel_dict(test_curves, args.targets)
+    classifiers = hier.create_classifiers(struct_strings, gamma_norm)
+    hierarchical_map, decisions = hierarchical_definition()
+    hierarchical = hier.create_hierarchical(classifiers, decisions, curves, labels)
+    preds, mapped_labs, mapped_inds, mapped_keys, dbd = hier.eval_hierarchical(classifiers, hierarchical_map, tcurves, tlabels, ck, True)
+    print(CR(tlabels, preds[np.argsort(mapped_inds)]))
+    resfile = open(join_path(args.resultsdir, 'classification_results.txt'), 'w')
+    resfile.write(CR(tlabels, preds[np.argsort(mapped_inds)]))
+    compare_regression(regressors, targets, mapped_labs, mapped_inds, mapped_keys, dbd, preds, test_curves, test_params, tmap, args)
+    if args.evaluate_file is not None:
+        ecurves = loaders.load_txt(args.evaluate_file)
+        eck = np.array(['eval%d'%(i) for i in range(curves.shape[0])])
+        elabels = np.zeros(curves.shape[0])
+        epreds, _, emapped_inds, emapped_keys, _ = hier.eval_hierarchical(classifiers, hierarchical_map, ecurves, elabels, eck, False)
+        epreds = [targets[int(i)] for i in reorder(epreds, emapped_inds)]
+        ekeys = reorder(eck, emapped_inds)
+        predpars = evaluate_regression(ecurves, epreds, regressors, args)
+        evalfile = open(join_path(args.resultsdir, 'predictions.txt'), 'w')
+        for i in range(len(epreds)):
+            p = predpars[i]
+            evalfile.write('%s %s\n'%(epreds[i], ' '.join(['%s:%s'%(k, p[k][0]) for k in p.keys()])))
+        
+
+
+
+if __name__ == '__main__':
+    main()
