@@ -16,14 +16,10 @@ import hierarchical as hier
 def parse_args():
    parser = argparse.ArgumentParser()
    parser.add_argument('--targets', default = ['cylinder', 'disk', 'sphere', 'cs_cylinder', 'cs_disk', 'cs_sphere'], nargs = '+')
-   parser.add_argument('--params', default = ['radius', 'length', 'shell', 'aspect_ratio', 'shell_ratio'])
    parser.add_argument('--datadir', default = '../example_data', help = 'the directory where the raw data are stored')
    parser.add_argument('--configdir', default = '../configs', help = 'the directory where the configuration files for the classifier and regressor are stored')
    parser.add_argument('--resultsdir', default = '../results', help = 'the directory where results and logs will be stored')
-   parser.add_argument('--projection', type=bool, default=False)
-   parser.add_argument('--logfile', default='hierarchical_log.csv')
-   parser.add_argument('--struct_strings_file', default="hierarchical_structure2.txt")
-   parser.add_argument('--experimental', type=bool, default = False)
+   parser.add_argument('--hierarchy_file', default="hierarchical_structure2.txt")
    parser.add_argument('--reg_file', type = str, default='krr_hyperparameters.txt')
    parser.add_argument('--extrapolation', type=bool,default=True)
    parser.add_argument('--evaluate_file', type=str, default=None, help='a file containing curves to predict, this is where to pass new curves without labels to evaluate')
@@ -127,6 +123,14 @@ def evaluate_regression(curves, classes, regressors, args):
 def reorder(vals, mapped_inds):
     return(vals[np.argsort(mapped_inds)])
 
+def read_params(regressors):
+    params = []
+    for _, pdict in regressors.items():
+        for key in pdict.keys():
+            if key not in params:
+                params += [key]
+    return(params)
+
 
 def main():
     args = parse_args()
@@ -135,14 +139,18 @@ def main():
     q = loaders.load_q(args.datadir)
     train_curves = loaders.load_all_curves(targets, q, args.datadir)
     test_curves = loaders.load_all_curves(args.targets, q, args.datadir, prefix = 'TEST')
-    train_params = loaders.load_all_params(targets, args.params, args.datadir)
-    test_params = loaders.load_all_params(targets, args.params, args.datadir, prefix = 'TEST')
-
-    ssf = open(join_path(args.configdir, args.struct_strings_file), 'r')
-    struct_strings = ssf.readline().split()
-
     gamma_norm = train_curves[args.targets[0]].shape[1]
     regressors = construct_regressor(join_path(args.configdir, args.reg_file), gamma_norm)
+    param_list = read_params(regressors)
+    extrap_params = param_list + [p for p in ['aspect_ratio', 'shell_ratio'] if p not in param_list]
+    train_params = loaders.load_all_params(targets, extrap_params, args.datadir)
+    test_params = loaders.load_all_params(targets, extrap_params, args.datadir, prefix = 'TEST')
+    if args.extrapolation:
+        test_curves, test_params = loaders.extrapolation_only(test_curves, test_params)
+
+    ssf = open(join_path(args.configdir, args.hierarchy_file), 'r')
+    struct_strings = ssf.readline().split()
+
     regressors = train_all_regression(train_curves, train_params, regressors)
     temp_ck_dict = loaders.load_all_params(args.targets, ['candidate key'], args.datadir, prefix='TEST')
     ck_dict = {t : temp_ck_dict[t]['candidate key'] for t in args.targets}

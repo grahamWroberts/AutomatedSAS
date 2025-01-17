@@ -111,9 +111,9 @@ def extrapolation_only(curves, params, aspect_ratio_cutoff = 8, shell_ratio_cuto
     for t in curves.keys():
         ar = params[t]["aspect_ratio"]
         sr = params[t]["shell_ratio"]
-        extrapolate_aspect_ratio = np.logical_or(np.greater(ar, aspect_ratio_cutoff), np.less_equal(ar, 1./aspect_Ratio_curoff))
-        extrapolate_shell = np.greter_equal(sr, shell_ratio_cutoff)
-        valid = np.where(np.logical_and(extrapolate_aspect_ratio, extrapolate_shell))[0]
+        extrapolate_aspect_ratio = np.logical_or(np.greater(ar, aspect_ratio_cutoff), np.less_equal(ar, 1./aspect_ratio_cutoff))
+        extrapolate_shell = np.greater_equal(sr, shell_ratio_cutoff)
+        valid = np.where(np.logical_or(extrapolate_aspect_ratio, extrapolate_shell))[0]
         newcurves[t] = curves[t][valid]
-        newparams[t] = {params[t][p][valid] for p in params[t].keys()}
-    return
+        newparams[t] = {p:params[t][p][valid] for p in params[t].keys()}
+    return(newcurves, newparams)

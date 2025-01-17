@@ -1,0 +1,126 @@
+4 TRUE radius:394.098991 length:386.551431 shell:142.229703 aspect_ratio:2.039051 shell_ratio:0.735890 REGRESSED cs_sphere radius:335.680844 shell:137.411427 TeSlS0160 0.5939 0.3270
+7 TRUE radius:427.353285 length:406.314757 shell:157.175449 aspect_ratio:2.103558 shell_ratio:0.773664 REGRESSED cs_sphere radius:333.184311 shell:130.516891 TeSlS0163 0.1284 0.4269
+13 TRUE radius:391.183723 length:366.883944 shell:159.295647 aspect_ratio:2.132466 shell_ratio:0.868371 REGRESSED cs_sphere radius:325.499582 shell:132.522730 TeSlS0169 0.3781 0.1250
+14 TRUE radius:297.385442 length:275.315827 shell:120.188638 aspect_ratio:2.160322 shell_ratio:0.873096 REGRESSED cs_sphere radius:278.532668 shell:115.789848 TeSlS0170 0.4633 0.3152
+15 TRUE radius:480.232244 length:413.380540 shell:142.793561 aspect_ratio:2.323439 shell_ratio:0.690858 REGRESSED cs_sphere radius:355.752086 shell:139.302818 TeSlS0171 0.2233 0.6120
+24 TRUE radius:411.793486 length:353.728283 shell:146.972121 aspect_ratio:2.328304 shell_ratio:0.830989 REGRESSED cs_sphere radius:334.658997 shell:139.722312 TeSlS0180 0.0721 0.5334
+25 TRUE radius:343.178072 length:278.788371 shell:118.434948 aspect_ratio:2.461925 shell_ratio:0.849641 REGRESSED cs_sphere radius:290.207372 shell:117.327786 TeSlS0181 0.0708 0.6432
+31 TRUE radius:281.664357 length:214.249084 shell:74.531434 aspect_ratio:2.629317 shell_ratio:0.695746 REGRESSED cs_sphere radius:250.385570 shell:106.058257 TeSlS0187 0.2963 0.6838
+42 TRUE radius:297.375187 length:221.045163 shell:96.658413 aspect_ratio:2.690628 shell_ratio:0.874558 REGRESSED cs_sphere radius:248.069458 shell:71.842382 TeSlS0198 0.4986 0.7708
+43 TRUE radius:386.050848 length:311.357976 shell:137.537078 aspect_ratio:2.479788 shell_ratio:0.883466 REGRESSED cs_sphere radius:330.427227 shell:134.189968 TeSlS0199 0.4922 0.0902
+106 TRUE radius:621.527095 length:280.333420 shell:93.847268 aspect_ratio:4.434199 shell_ratio:0.669540 REGRESSED cs_sphere radius:144.714147 shell:47.730328 TeSlS0262 1.4520 0.5611
+112 TRUE radius:450.538851 length:214.834488 shell:84.362548 aspect_ratio:4.194288 shell_ratio:0.785372 REGRESSED cs_sphere radius:272.283307 shell:73.384913 TeSlS0268 0.5847 0.7364
+122 TRUE radius:432.503761 length:176.966374 shell:57.722985 aspect_ratio:4.887977 shell_ratio:0.652361 REGRESSED cs_sphere radius:71.609287 shell:33.527615 TeSlS0278 0.5067 0.3443
+142 TRUE radius:502.317563 length:190.508906 shell:73.454275 aspect_ratio:5.273429 shell_ratio:0.771137 REGRESSED cs_sphere radius:299.498836 shell:119.463217 TeSlS0298 0.0090 0.7237
+166 TRUE radius:713.853961 length:211.075680 shell:69.144491 aspect_ratio:6.763962 shell_ratio:0.655163 REGRESSED cs_sphere radius:118.094662 shell:34.988339 TeSlS0322 4.1290 0.6142
+196 TRUE radius:785.628618 length:194.601422 shell:32.581284 aspect_ratio:8.074233 shell_ratio:0.334851 REGRESSED cs_sphere radius:75.537506 shell:31.312597 TeSlS0352 0.0401 0.6683
+242 TRUE radius:690.855155 length:146.888599 shell:42.562350 aspect_ratio:9.406518 shell_ratio:0.579519 REGRESSED cs_sphere radius:82.645275 shell:30.025168 TeSlS0398 1.3471 0.5994
+258 TRUE radius:814.800401 length:163.239179 shell:24.355830 aspect_ratio:9.982902 shell_ratio:0.298407 REGRESSED cs_sphere radius:106.605627 shell:33.723403 TeSlS0414 0.4173 0.4786
+275 TRUE radius:840.245480 length:160.297163 shell:40.565764 aspect_ratio:10.483598 shell_ratio:0.506132 REGRESSED cs_sphere radius:119.926108 shell:33.277496 TeSlS0431 0.3563 0.3125
+284 TRUE radius:530.883017 length:101.077415 shell:32.955535 aspect_ratio:10.504483 shell_ratio:0.652085 REGRESSED cs_sphere radius:153.755121 shell:30.606315 TeSlS0440 0.2958 0.7518
+287 TRUE radius:483.599459 length:91.634643 shell:32.251577 aspect_ratio:10.554948 shell_ratio:0.703917 REGRESSED cs_sphere radius:150.545683 shell:30.602850 TeSlS0443 0.9969 0.7473
+293 TRUE radius:848.523559 length:163.611300 shell:65.578927 aspect_ratio:10.372432 shell_ratio:0.801643 REGRESSED cs_sphere radius:71.746212 shell:27.397130 TeSlS0449 0.5834 0.7885
+296 TRUE radius:806.206534 length:141.878715 shell:24.241404 aspect_ratio:11.364728 shell_ratio:0.341720 REGRESSED cs_sphere radius:110.913519 shell:26.382455 TeSlS0452 0.0044 0.6274
+298 TRUE radius:772.792934 length:143.714401 shell:28.509233 aspect_ratio:10.754565 shell_ratio:0.396748 REGRESSED cs_sphere radius:83.287226 shell:29.635353 TeSlS0454 0.6741 1.0766
+319 TRUE radius:579.473104 length:104.321796 shell:37.129938 aspect_ratio:11.109339 shell_ratio:0.711835 REGRESSED cs_sphere radius:109.195327 shell:25.048139 TeSlS0475 0.1159 0.7796
+354 TRUE radius:819.645033 length:138.038985 shell:55.492980 aspect_ratio:11.875559 shell_ratio:0.804019 REGRESSED cs_sphere radius:89.345676 shell:26.089054 TeSlS0510 0.1815 0.8545
+359 TRUE radius:815.151184 length:122.622292 shell:24.455601 aspect_ratio:13.295318 shell_ratio:0.398877 REGRESSED cs_sphere radius:90.182445 shell:26.020219 TeSlS0515 1.1081 0.8139
+361 TRUE radius:813.092159 length:118.539223 shell:26.230819 aspect_ratio:13.718534 shell_ratio:0.442568 REGRESSED cs_sphere radius:103.937749 shell:24.557559 TeSlS0517 0.6483 0.7363
+364 TRUE radius:768.948134 length:116.711548 shell:26.618002 aspect_ratio:13.176899 shell_ratio:0.456133 REGRESSED cs_sphere radius:58.506308 shell:25.391737 TeSlS0520 1.1963 0.7879
+384 TRUE radius:813.659654 length:110.930625 shell:24.332423 aspect_ratio:14.669703 shell_ratio:0.438696 REGRESSED cs_sphere radius:59.097801 shell:24.194867 TeSlS0540 1.6112 0.7256
+387 TRUE radius:782.463546 length:106.162828 shell:25.040416 aspect_ratio:14.740820 shell_ratio:0.471736 REGRESSED cs_sphere radius:66.155081 shell:23.850278 TeSlS0543 1.2762 0.7417
+388 TRUE radius:755.566897 length:103.173122 shell:26.580952 aspect_ratio:14.646584 shell_ratio:0.515269 REGRESSED cs_sphere radius:79.834105 shell:22.995092 TeSlS0544 0.4845 0.7342
+392 TRUE radius:687.920909 length:90.465743 shell:25.305630 aspect_ratio:15.208429 shell_ratio:0.559452 REGRESSED cs_sphere radius:136.990257 shell:26.626250 TeSlS0548 0.7005 0.7453
+401 TRUE radius:781.412532 length:97.871572 shell:34.826764 aspect_ratio:15.968121 shell_ratio:0.711683 REGRESSED cs_sphere radius:147.404893 shell:29.745554 TeSlS0557 0.6141 0.7544
+404 TRUE radius:771.906565 length:104.414878 shell:39.817747 aspect_ratio:14.785375 shell_ratio:0.762683 REGRESSED cs_sphere radius:122.703151 shell:25.550120 TeSlS0560 0.7479 0.7600
+428 TRUE radius:528.886838 length:406.471004 shell:151.612453 aspect_ratio:2.602335 shell_ratio:0.745994 REGRESSED cs_sphere radius:54.411813 shell:48.795484 TeSlS0584 1.3820 0.7021
+434 TRUE radius:440.550081 length:217.784346 shell:87.048819 aspect_ratio:4.045746 shell_ratio:0.799404 REGRESSED cs_sphere radius:242.852971 shell:55.753827 TeSlS0590 0.9001 0.7283
+438 TRUE radius:695.089772 length:546.368195 shell:179.243292 aspect_ratio:2.544401 shell_ratio:0.656126 REGRESSED cs_sphere radius:159.228007 shell:71.920046 TeSlS0594 3.4444 0.6468
+459 TRUE radius:301.709320 length:296.854215 shell:98.399362 aspect_ratio:2.032710 shell_ratio:0.662947 REGRESSED cs_sphere radius:279.470936 shell:119.121975 TeSlS0615 0.4617 0.3854
+490 TRUE radius:352.738868 length:343.483360 shell:152.593490 aspect_ratio:2.053892 shell_ratio:0.888506 REGRESSED cs_sphere radius:312.744902 shell:131.532277 TeSlS0646 0.7440 0.0731
+497 TRUE radius:506.389456 length:471.384532 shell:161.259577 aspect_ratio:2.148520 shell_ratio:0.684195 REGRESSED cs_sphere radius:116.028570 shell:65.724937 TeSlS0653 0.9632 0.5930
+499 TRUE radius:633.072074 length:132.036260 shell:33.938657 aspect_ratio:9.589367 shell_ratio:0.514081 REGRESSED cs_sphere radius:85.898853 shell:28.816623 TeSlS0655 1.1618 0.4912
+512 TRUE radius:429.702700 length:420.346018 shell:149.177990 aspect_ratio:2.044519 shell_ratio:0.709787 REGRESSED cs_sphere radius:345.573453 shell:138.966159 TeSlS0668 0.0050 0.7412
+3 TRUE radius:325.913785 length:304.346627 shell:112.045548 aspect_ratio:2.141728 shell_ratio:0.736302 REGRESSED cylinder radius:187.388720 length:858.808732 TeSlS0159 -1.0151 -0.0096 -0.1578
+29 TRUE radius:302.073198 length:261.306153 shell:112.727881 aspect_ratio:2.312025 shell_ratio:0.862803 REGRESSED cylinder radius:192.592924 length:640.703169 TeSlS0185 -1.0660 -0.0375 -0.9260
+40 TRUE radius:306.569975 length:232.365279 shell:93.302301 aspect_ratio:2.638690 shell_ratio:0.803066 REGRESSED cylinder radius:178.000698 length:686.576693 TeSlS0196 -2.2795 -0.4872 -0.5590
+71 TRUE radius:262.630280 length:161.420233 shell:65.241641 aspect_ratio:3.253995 shell_ratio:0.808345 REGRESSED cylinder radius:130.505055 length:554.819941 TeSlS0227 -1.8877 -0.1648 -0.1277
+81 TRUE radius:293.296786 length:165.562270 shell:64.387663 aspect_ratio:3.543039 shell_ratio:0.777806 REGRESSED cylinder radius:137.951807 length:768.120954 TeSlS0237 -1.3692 -0.1740 -1.0578
+111 TRUE radius:318.409854 length:152.880890 shell:58.506528 aspect_ratio:4.165463 shell_ratio:0.765387 REGRESSED cylinder radius:25.572204 length:-436.703852 TeSlS0267 -0.6313 -0.3615 -6.9526
+125 TRUE radius:423.021878 length:167.340762 shell:58.888870 aspect_ratio:5.055814 shell_ratio:0.703820 REGRESSED cylinder radius:134.670984 length:1754.062370 TeSlS0281 -0.5457 -0.0623 -1.2014
+1 TRUE radius:410.122934 length:370.218146 shell:123.988771 aspect_ratio:2.215574 shell_ratio:0.669815 REGRESSED disk radius:369.306546 length:283.866127 TeSlS0157 -1.9399 -1.0474 2.0772
+16 TRUE radius:278.280347 length:245.114652 shell:81.905865 aspect_ratio:2.270614 shell_ratio:0.668307 REGRESSED disk radius:231.137277 length:183.685484 TeSlS0172 -0.7563 -0.6480 2.3609
+17 TRUE radius:255.070244 length:207.848560 shell:70.223665 aspect_ratio:2.454385 shell_ratio:0.675720 REGRESSED disk radius:223.068277 length:212.624876 TeSlS0173 -0.6891 -1.0461 1.7388
+39 TRUE radius:259.177138 length:194.184461 shell:80.205413 aspect_ratio:2.669391 shell_ratio:0.826074 REGRESSED disk radius:218.538900 length:222.583779 TeSlS0195 -1.1767 -0.6902 0.7800
+41 TRUE radius:311.088971 length:229.235326 shell:94.336055 aspect_ratio:2.714145 shell_ratio:0.823050 REGRESSED disk radius:319.424838 length:238.740744 TeSlS0197 -2.0080 -0.0891 0.2369
+44 TRUE radius:293.737021 length:228.017186 shell:98.966271 aspect_ratio:2.576446 shell_ratio:0.868060 REGRESSED disk radius:279.702198 length:220.461747 TeSlS0200 -1.3439 -0.5262 1.9174
+60 TRUE radius:398.030137 length:237.843122 shell:77.470009 aspect_ratio:3.346997 shell_ratio:0.651438 REGRESSED disk radius:392.329897 length:221.089179 TeSlS0216 -2.3297 -0.6635 2.1058
+65 TRUE radius:406.172625 length:245.083747 shell:89.149312 aspect_ratio:3.314562 shell_ratio:0.727501 REGRESSED disk radius:406.575110 length:218.858174 TeSlS0221 -2.1724 -0.1790 2.5618
+72 TRUE radius:395.343681 length:246.792074 shell:107.470546 aspect_ratio:3.203860 shell_ratio:0.870940 REGRESSED disk radius:392.207918 length:214.314137 TeSlS0228 -1.6443 -0.0706 2.6526
+76 TRUE radius:376.732403 length:207.307112 shell:70.729785 aspect_ratio:3.634534 shell_ratio:0.682367 REGRESSED disk radius:374.971147 length:159.600865 TeSlS0232 -1.8720 -0.5799 3.2664
+79 TRUE radius:372.482465 length:219.645195 shell:76.945876 aspect_ratio:3.391674 shell_ratio:0.700638 REGRESSED disk radius:341.172699 length:175.381730 TeSlS0235 -1.1901 -0.4424 2.8457
+87 TRUE radius:472.152633 length:257.151968 shell:115.362903 aspect_ratio:3.672168 shell_ratio:0.897235 REGRESSED disk radius:432.263177 length:276.455378 TeSlS0243 -2.9108 -0.4245 0.5765
+88 TRUE radius:385.618987 length:227.435415 shell:99.314111 aspect_ratio:3.391020 shell_ratio:0.873339 REGRESSED disk radius:400.095899 length:213.259102 TeSlS0244 -2.7214 -0.2230 3.2004
+89 TRUE radius:396.811320 length:218.824897 shell:95.528955 aspect_ratio:3.626747 shell_ratio:0.873109 REGRESSED disk radius:394.309911 length:214.458048 TeSlS0245 -3.8873 -0.8162 3.0459
+92 TRUE radius:266.923229 length:140.506888 shell:47.907328 aspect_ratio:3.799433 shell_ratio:0.681921 REGRESSED disk radius:216.786095 length:118.346816 TeSlS0248 -1.5998 -0.8906 3.6633
+104 TRUE radius:414.564058 length:221.368182 shell:96.769116 aspect_ratio:3.745471 shell_ratio:0.874282 REGRESSED disk radius:405.186952 length:214.288177 TeSlS0260 -2.8258 -0.8207 1.7253
+134 TRUE radius:525.804015 length:208.419086 shell:90.957677 aspect_ratio:5.045642 shell_ratio:0.872834 REGRESSED disk radius:452.217278 length:206.576594 TeSlS0290 -3.4175 -0.2424 1.7297
+138 TRUE radius:258.593018 length:97.843503 shell:35.471045 aspect_ratio:5.285850 shell_ratio:0.725057 REGRESSED disk radius:245.085356 length:79.236376 TeSlS0294 -1.6637 -0.7123 3.9171
+139 TRUE radius:503.223937 length:193.927838 shell:70.954953 aspect_ratio:5.189806 shell_ratio:0.731767 REGRESSED disk radius:451.192141 length:188.716964 TeSlS0295 -3.3874 -0.6357 1.7025
+153 TRUE radius:522.252035 length:183.598068 shell:65.517443 aspect_ratio:5.689080 shell_ratio:0.713705 REGRESSED disk radius:445.518546 length:144.774554 TeSlS0309 -1.8040 -0.4816 3.6489
+154 TRUE radius:274.357663 length:90.496059 shell:32.135538 aspect_ratio:6.063417 shell_ratio:0.710209 REGRESSED disk radius:240.478774 length:75.683541 TeSlS0310 -1.5141 -0.7064 4.2760
+164 TRUE radius:535.105742 length:183.791375 shell:79.381134 aspect_ratio:5.822969 shell_ratio:0.863818 REGRESSED disk radius:465.141738 length:198.961396 TeSlS0320 -3.0029 -0.0878 0.0890
+170 TRUE radius:312.512656 length:89.979743 shell:32.473728 aspect_ratio:6.946289 shell_ratio:0.721801 REGRESSED disk radius:293.074365 length:70.160784 TeSlS0326 -1.4155 -0.2205 3.7238
+180 TRUE radius:363.798927 length:96.516336 shell:33.088039 aspect_ratio:7.538598 shell_ratio:0.685646 REGRESSED disk radius:343.928678 length:84.651120 TeSlS0336 -2.1749 -0.6054 0.9772
+211 TRUE radius:401.622477 length:97.235613 shell:32.913579 aspect_ratio:8.260810 shell_ratio:0.676986 REGRESSED disk radius:373.575271 length:69.404864 TeSlS0367 -0.6931 -0.2507 5.3273
+215 TRUE radius:533.340897 length:136.564808 shell:50.973354 aspect_ratio:7.810810 shell_ratio:0.746508 REGRESSED disk radius:460.764718 length:135.201231 TeSlS0371 -2.7447 -0.1503 4.0292
+216 TRUE radius:464.026161 length:113.553124 shell:42.619368 aspect_ratio:8.172847 shell_ratio:0.750651 REGRESSED disk radius:430.253332 length:114.598087 TeSlS0372 -3.0914 -0.2334 5.5318
+246 TRUE radius:482.402724 length:110.548261 shell:37.130135 aspect_ratio:8.727459 shell_ratio:0.671745 REGRESSED disk radius:425.170104 length:51.541547 TeSlS0402 -2.1246 -0.4059 5.4960
+270 TRUE radius:546.532840 length:111.383448 shell:25.753532 aspect_ratio:9.813538 shell_ratio:0.462430 REGRESSED disk radius:454.102727 length:96.932957 TeSlS0426 -3.8506 -0.3585 2.7310
+398 TRUE radius:590.239117 length:81.717831 shell:28.109814 aspect_ratio:14.445785 shell_ratio:0.687973 REGRESSED disk radius:450.361405 length:62.988251 TeSlS0554 -0.3241 -0.0437 4.7332
+435 TRUE radius:316.938705 length:97.001673 shell:31.783314 aspect_ratio:6.534706 shell_ratio:0.655315 REGRESSED disk radius:279.435213 length:76.935275 TeSlS0591 -1.1270 -0.3846 4.1690
+441 TRUE radius:566.391964 length:115.662741 shell:40.548233 aspect_ratio:9.793853 shell_ratio:0.701146 REGRESSED disk radius:455.806100 length:102.997919 TeSlS0597 -3.3278 -0.1818 3.3066
+447 TRUE radius:509.158724 length:368.004527 shell:163.282083 aspect_ratio:2.767133 shell_ratio:0.887392 REGRESSED disk radius:493.758936 length:362.312197 TeSlS0603 -1.7552 -0.6637 3.1564
+469 TRUE radius:516.167293 length:81.656923 shell:28.358928 aspect_ratio:12.642340 shell_ratio:0.694587 REGRESSED disk radius:438.670387 length:65.888004 TeSlS0625 -1.3711 -0.5101 4.5567
+473 TRUE radius:416.497442 length:148.090611 shell:49.187681 aspect_ratio:5.624900 shell_ratio:0.664292 REGRESSED disk radius:396.445939 length:85.884732 TeSlS0629 -1.5764 -0.0437 6.0002
+474 TRUE radius:386.130532 length:90.806889 shell:29.276215 aspect_ratio:8.504433 shell_ratio:0.644802 REGRESSED disk radius:377.139294 length:91.333712 TeSlS0630 -2.6130 -0.3158 5.2807
+477 TRUE radius:418.050611 length:389.560672 shell:165.965512 aspect_ratio:2.146267 shell_ratio:0.852065 REGRESSED disk radius:452.213094 length:331.002824 TeSlS0633 -0.1185 -0.0047 2.9585
+485 TRUE radius:610.542961 length:92.280645 shell:32.112245 aspect_ratio:13.232308 shell_ratio:0.695969 REGRESSED disk radius:451.816091 length:39.376789 TeSlS0641 -2.0969 -0.1305 3.6809
+486 TRUE radius:559.469163 length:121.924634 shell:40.179381 aspect_ratio:9.177295 shell_ratio:0.659086 REGRESSED disk radius:449.019432 length:109.939789 TeSlS0642 -3.2898 -0.3418 2.2599
+491 TRUE radius:581.042082 length:106.475932 shell:33.892294 aspect_ratio:10.914055 shell_ratio:0.636619 REGRESSED disk radius:445.033130 length:91.518060 TeSlS0647 -0.9659 -0.1412 2.8802
+513 TRUE radius:308.920518 length:241.803497 shell:104.165162 aspect_ratio:2.555137 shell_ratio:0.861569 REGRESSED disk radius:287.711514 length:228.972171 TeSlS0669 -0.8492 -0.6053 1.8683
+517 TRUE radius:597.489823 length:125.768731 shell:24.577641 aspect_ratio:9.501405 shell_ratio:0.390839 REGRESSED disk radius:456.769655 length:110.376197 TeSlS0673 -1.9241 -0.1121 2.2347
+22 TRUE radius:483.335385 length:417.934263 shell:164.097025 aspect_ratio:2.312973 shell_ratio:0.785277 REGRESSED cs_cylinder radius:278.958383 length:2020.953245 shell:150.814360 TeSlS0178 -1.7467 0.5345 -0.1061
+136 TRUE radius:257.946464 length:96.944505 shell:32.357642 aspect_ratio:5.321528 shell_ratio:0.667550 REGRESSED cs_cylinder radius:106.593244 length:766.884966 shell:42.189967 TeSlS0292 -3.7937 0.0810 -0.0088
+159 TRUE radius:523.587831 length:175.720360 shell:71.391128 aspect_ratio:5.959330 shell_ratio:0.812554 REGRESSED cs_cylinder radius:83.210398 length:604.841774 shell:30.246016 TeSlS0315 -0.2065 0.4022 -0.7142
+222 TRUE radius:775.184437 length:163.888319 shell:24.404608 aspect_ratio:9.459911 shell_ratio:0.297820 REGRESSED cs_cylinder radius:97.185528 length:1096.873833 shell:24.282541 TeSlS0378 -2.4461 0.6346 -1.5367
+226 TRUE radius:805.435012 length:184.251371 shell:29.471169 aspect_ratio:8.742784 shell_ratio:0.319902 REGRESSED cs_cylinder radius:99.252590 length:1056.742321 shell:30.861628 TeSlS0382 -3.0556 0.6494 -0.1384
+227 TRUE radius:833.666474 length:177.143293 shell:28.190723 aspect_ratio:9.412340 shell_ratio:0.318282 REGRESSED cs_cylinder radius:97.902012 length:1002.625423 shell:26.040100 TeSlS0383 -0.8956 0.5994 -1.3566
+259 TRUE radius:817.457415 length:167.761033 shell:24.638126 aspect_ratio:9.745498 shell_ratio:0.293729 REGRESSED cs_cylinder radius:95.567578 length:1057.452544 shell:22.230330 TeSlS0415 -2.1036 0.6881 -0.9562
+260 TRUE radius:848.839145 length:177.622036 shell:25.779790 aspect_ratio:9.557814 shell_ratio:0.290277 REGRESSED cs_cylinder radius:91.895831 length:1235.641746 shell:22.473302 TeSlS0416 -2.3909 0.7826 -0.5329
+261 TRUE radius:779.387664 length:158.799016 shell:27.320509 aspect_ratio:9.816026 shell_ratio:0.344089 REGRESSED cs_cylinder radius:92.040769 length:1068.293355 shell:25.862767 TeSlS0417 -2.6833 0.9186 -0.3400
+262 TRUE radius:840.191549 length:166.586138 shell:25.078446 aspect_ratio:10.087172 shell_ratio:0.301087 REGRESSED cs_cylinder radius:106.959750 length:1072.122804 shell:29.937861 TeSlS0418 -2.8950 0.7040 -0.9503
+263 TRUE radius:840.655564 length:172.205542 shell:28.029407 aspect_ratio:9.763397 shell_ratio:0.325534 REGRESSED cs_cylinder radius:102.254292 length:906.832106 shell:30.602017 TeSlS0419 -1.8949 0.2493 -0.0174
+265 TRUE radius:732.741149 length:152.183797 shell:29.306502 aspect_ratio:9.629687 shell_ratio:0.385146 REGRESSED cs_cylinder radius:95.691681 length:854.171887 shell:32.404826 TeSlS0421 -0.5201 0.6414 -0.5758
+266 TRUE radius:772.131463 length:151.558033 shell:27.454267 aspect_ratio:10.189252 shell_ratio:0.362294 REGRESSED cs_cylinder radius:79.873963 length:1029.926568 shell:22.705488 TeSlS0422 -0.8375 0.7540 -0.2221
+281 TRUE radius:574.097399 length:119.287512 shell:36.851531 aspect_ratio:9.625440 shell_ratio:0.617861 REGRESSED cs_cylinder radius:70.319160 length:184.669958 shell:44.407958 TeSlS0437 -0.3533 0.5313 -1.8861
+291 TRUE radius:741.260948 length:143.991410 shell:57.661747 aspect_ratio:10.295905 shell_ratio:0.800905 REGRESSED cs_cylinder radius:80.456163 length:719.019248 shell:29.020380 TeSlS0447 -0.5899 0.4726 -1.0169
+297 TRUE radius:722.534935 length:130.871526 shell:24.896791 aspect_ratio:11.041897 shell_ratio:0.380477 REGRESSED cs_cylinder radius:76.657761 length:721.583684 shell:27.513344 TeSlS0453 -2.1150 0.6472 -0.2988
+300 TRUE radius:645.429072 length:114.192465 shell:24.186594 aspect_ratio:11.304232 shell_ratio:0.423611 REGRESSED cs_cylinder radius:84.615223 length:787.696833 shell:27.544944 TeSlS0456 -0.9064 0.6060 -0.6068
+314 TRUE radius:608.091583 length:106.919007 shell:32.873761 aspect_ratio:11.374808 shell_ratio:0.614928 REGRESSED cs_cylinder radius:72.396503 length:798.298334 shell:30.662239 TeSlS0470 -0.0986 0.4803 -0.8416
+323 TRUE radius:687.810592 length:122.985910 shell:48.501438 aspect_ratio:11.185193 shell_ratio:0.788732 REGRESSED cs_cylinder radius:77.027135 length:517.301856 shell:30.879448 TeSlS0479 -1.2307 0.3285 -2.2161
+325 TRUE radius:774.612778 length:134.718336 shell:54.328291 aspect_ratio:11.499738 shell_ratio:0.806546 REGRESSED cs_cylinder radius:81.130403 length:646.287833 shell:29.727752 TeSlS0481 -0.9927 0.3096 -1.6901
+353 TRUE radius:682.766580 length:110.502577 shell:43.156942 aspect_ratio:12.357478 shell_ratio:0.781103 REGRESSED cs_cylinder radius:70.414030 length:629.097884 shell:26.929299 TeSlS0509 -0.3824 0.4528 -2.9907
+355 TRUE radius:795.779965 length:134.646409 shell:54.052138 aspect_ratio:11.820292 shell_ratio:0.802875 REGRESSED cs_cylinder radius:91.732180 length:970.387049 shell:24.117198 TeSlS0511 -2.2688 0.6489 -0.1370
+356 TRUE radius:808.770270 length:133.140909 shell:53.389121 aspect_ratio:12.149087 shell_ratio:0.801994 REGRESSED cs_cylinder radius:76.171916 length:695.752013 shell:28.172562 TeSlS0512 -0.7097 0.3533 -1.5571
+360 TRUE radius:791.673415 length:116.270356 shell:24.334701 aspect_ratio:13.617803 shell_ratio:0.418588 REGRESSED cs_cylinder radius:92.372361 length:750.956922 shell:30.485164 TeSlS0516 -0.6549 0.3539 -0.0204
+372 TRUE radius:632.107161 length:94.581926 shell:30.460253 aspect_ratio:13.366342 shell_ratio:0.644103 REGRESSED cs_cylinder radius:72.850526 length:681.485030 shell:24.675558 TeSlS0528 -1.4173 0.4711 -1.6740
+381 TRUE radius:740.620757 length:105.297305 shell:39.610328 aspect_ratio:14.067231 shell_ratio:0.752352 REGRESSED cs_cylinder radius:70.460102 length:870.001374 shell:20.080814 TeSlS0537 -0.7835 0.5013 -0.9276
+382 TRUE radius:846.953043 length:119.172506 shell:46.324428 aspect_ratio:14.213900 shell_ratio:0.777435 REGRESSED cs_cylinder radius:78.275664 length:851.710988 shell:23.831914 TeSlS0538 -2.0257 0.6441 -1.3883
+389 TRUE radius:839.161899 length:106.207537 shell:27.328333 aspect_ratio:15.802304 shell_ratio:0.514621 REGRESSED cs_cylinder radius:95.115070 length:577.756880 shell:30.055176 TeSlS0545 -2.4177 0.4764 -0.9710
+400 TRUE radius:757.184119 length:102.111079 shell:36.777794 aspect_ratio:14.830597 shell_ratio:0.720349 REGRESSED cs_cylinder radius:78.766711 length:857.436590 shell:19.357773 TeSlS0556 -1.4980 0.6047 -0.7922
+402 TRUE radius:837.445065 length:108.626567 shell:38.345881 aspect_ratio:15.418789 shell_ratio:0.706013 REGRESSED cs_cylinder radius:69.953837 length:800.705314 shell:26.696512 TeSlS0558 -0.8181 0.5103 -1.6474
+403 TRUE radius:780.221282 length:107.864644 shell:40.803646 aspect_ratio:14.466673 shell_ratio:0.756571 REGRESSED cs_cylinder radius:82.887699 length:865.536445 shell:20.068737 TeSlS0559 -1.5713 0.6047 -0.3678
+405 TRUE radius:748.489211 length:100.940088 shell:37.974057 aspect_ratio:14.830366 shell_ratio:0.752408 REGRESSED cs_cylinder radius:69.563203 length:898.020219 shell:17.229347 TeSlS0561 -0.5903 0.5309 -0.7857
+443 TRUE radius:601.640281 length:87.130372 shell:25.202720 aspect_ratio:13.810116 shell_ratio:0.578506 REGRESSED cs_cylinder radius:67.574885 length:816.853254 shell:19.823700 TeSlS0599 -0.8648 0.5439 -1.3000
+516 TRUE radius:800.949515 length:111.760671 shell:37.595568 aspect_ratio:14.333298 shell_ratio:0.672787 REGRESSED cs_cylinder radius:90.874503 length:652.072902 shell:28.790582 TeSlS0672 -1.5621 0.5808 -0.8222

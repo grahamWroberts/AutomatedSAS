@@ -28,8 +28,8 @@ def parse_args():
    parser.add_argument('--min_samples', default = 10, type=int, help = 'the minimum number of samples per split used in random forest')
    parser.add_argument('--max_features', default='sqrt', type=str, help = 'the maximum number of features to split on used in random forest')
    parser.add_argument('--k_fold', type=int, default=5, help = "The number of folds to use in K-fold cross validation, note for each fold one fold is used for training and the rest for validation")
-   parser.add_argument('--train_folds', type=int, default = 1, help = "the number of folds to use as training, with the rest validation")
    parser.add_argument('--test', type=bool, default=False, help="a flag for whether to predict on the test data, if false will evaluate k-fold and report performance on validation")
+   parser.add_argument('--extrapolation', type=bool, default=False, help="a flag for whether to test on only data with aspect and shell ratios outside the training data or not")
    return(parser.parse_args())
 
 def main():
@@ -58,6 +58,9 @@ def main():
    #The section reads in a fully separate test set, trains the predictor on all available training data and then calculates the accuracy on the test set. All classes have equal representation in the test set so accuracy is a valid metric to use.
    if args.test is True:
       test_curves = loaders.load_all_curves(args.targets, q, args.datadir, prefix = 'TEST')
+      if args.extrapolation:
+          test_params = loaders.load_all_params(args.targets, ['aspect_ratio', 'shell_ratio'], args.datadir, prefix = 'TEST')
+          test_curves, test_params = loaders.extrapolation_only(test_curves, test_params)
       tcurves, tlabels, tmap = loaders.unravel_dict(test_curves, args.targets)
       predictor.fit(curves, labels)
       predictions = predictor.predict(tcurves)
