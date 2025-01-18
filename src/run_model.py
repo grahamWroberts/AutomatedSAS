@@ -13,6 +13,9 @@ from sklearn.kernel_ridge import KernelRidge as KRR
 from sklearn.metrics import r2_score
 from sklearn.metrics import mean_absolute_percentage_error as MAPE
 import hierarchical as hier
+
+#parse args
+#reads in option flags when script is invoked
 def parse_args():
    parser = argparse.ArgumentParser()
    parser.add_argument('--targets', default = ['cylinder', 'disk', 'sphere', 'cs_cylinder', 'cs_disk', 'cs_sphere'], nargs = '+')
@@ -25,6 +28,17 @@ def parse_args():
    parser.add_argument('--evaluate_file', type=str, default=None, help='a file containing curves to predict, this is where to pass new curves without labels to evaluate')
    return(parser.parse_args())
    
+#construct regressor
+#Arguments: pfile a filepath to a file contining the regressor hyperparaeters for each structural parameter for each target
+# gamma norm: a normalization factor, usually just num features
+# Returns: A dictionary of dictionaries of dictionaries of instantiated regression objects
+#   {morphology 1:{structural parameter 1: {regression object},
+#                  structural parameter 2: {regression object},
+#                  ...},
+#    morphology 2:{structural parameter 1: {regression object},
+#                  structural parameter 2: {regression object},
+#                  ...},
+#    ...}  
 def construct_regressor(pfile, gamma_norm):
     rdict = {}
     pdict = parse_pfile(pfile)
@@ -39,6 +53,16 @@ def construct_regressor(pfile, gamma_norm):
             rdict[t][p] = regressor
     return(rdict)
 
+#parse pfile
+#Arguments: pfile a filepath to a file containing the hyperparameters for each structural parameter for each target
+# Returns: A dictionary of dictionaries of dictionaries of hyperparameters for each regression
+#   {morphology 1:{structural parameter 1: {hyperparameters for regression},
+#                  structural parameter 2: {hyperparameters for regression},
+#                  ...},
+#    morphology 2:{structural parameter 1: {hyperparameters for regression},
+#                  structural parameter 2: {hyperparameters for regression},
+#                  ...},
+#    ...}  
 def parse_pfile(pfile):
    data_conversions = {'alpha':float,'gamma':float,'kernel':str,'degree':int,'coef0':float}
    pdict = {}
@@ -61,6 +85,12 @@ def parse_pfile(pfile):
        pdict[targ][p]=ps
    return(pdict)
 
+#train all regression
+#Trains each of the regression objects
+#Arguments train_curves: a dictionary mapping each target to an array of curves
+#          train_params: a dictionary of dictionarries of arrays, mapping each morphology, to each structural parameter to an array of values
+#          regressors: a dictionary of dictionaries of regression objects to be trained
+#Returns: trained regrrssors dictionary
 def train_all_regression(train_curves, train_params, regressors):
     for t in train_params.keys():
         for p in regressors[t].keys():
@@ -68,7 +98,14 @@ def train_all_regression(train_curves, train_params, regressors):
     return(regressors)
 
 #This is a helper function definining the specific structure of this hierarchical classifier
-#in 1.0 this functionality will be offloaded onto a much more rational json structure
+#in 1.0 this functionality will be offloaded onto a json structure
+# This function defines the structure of the hierachy for the classifier
+# each decision is a dictionary that maps the number of a morphology to its label in the hierarchiacal version
+#   i.e., decision one is the decision between [0,1,3,4] and [2,5], in this case [cylinder, disk, cs_cylinder, cs_disk] and [sphere, cs_sphere]
+# hierarchical map shows that for each output of a decsion, where it should be sent to.
+#   anython predicted 0 by the first decision goes to decision 2, anything predicted 1 foes to decision 1.
+#   anything predicted as 0 by decision 1 is class '2' and anything predicted 1 is class '5', the ones sent to decision 2 are further decided into  [0, 1] vs [3, 4]
+# hierarchical_map, and deciions are the encodng of the hierarchical classifier structure
 def hierarchical_definition():
     decision1 = {0:0,1:0,2:1,3:0,4:0,5:1}
     decision2 = {2:0,5:1}
@@ -79,6 +116,22 @@ def hierarchical_definition():
     hierarchical_map = [{0:2,1:1},{0:'2',1:'5'},{0:3,1:4},{0:'0',1:'1'},{0:'3',1:'4'}]
     return(hierarchical_map, decisions)
 
+# compare regression is a large function that does many things
+# taking the predicted labels from the classifier it passes each test curve to the respective set of regression objects
+# it then writes out a set of files to compare the predicted and labeled parameter values for each curve
+# since some curves are mispredicted those are separated into different files so one can compare the outputs of the regression to the true values of the often different set of correct structural parameters
+# Argument:
+#   regressors: A dictionary of dictionaries of dictionaries of regression objects for each parameter for each orphology
+#   targets: a list of target morphologies
+#   mapped_labs: the true morphology labels in the rearranged order
+#   mapped_inds: a key mapping eah curve back to its unshuffled psoition
+#   mapped_keys: a list of strings mapping each curve after shuffling back to its key in the database
+#   dbd: a list of distances from the decision boundaries in the classifier
+#   preds: the predicted morphologies of the curves
+#   test_curves: the dictionary mapping each morphology to curves to be passed to the regression objects
+#   test_params: the dictionary of dictionaries mapping each morphology to each stuctural parameters to the array of labels to use for the regression.
+#   tmap: a map between the indices of the curves in the separate arrays to their concatenated counterparts
+#   args: the argument object containing user defined flags
 def compare_regression(regressors, targets, mapped_labs, mapped_inds, mapped_keys, dbd, preds, test_curves, test_params, tmap, args):
     for i in range(len(targets)):
         t = targets[i]
@@ -108,6 +161,15 @@ def compare_regression(regressors, targets, mapped_labs, mapped_inds, mapped_key
             incorrect_file.write('%d TRUE %s REGRESSED %s %s %s %s\n'%(original_incorrect[ici], ' '.join(['%s:%f'%(p, test_params[t][p][original_incorrect[ici]]) for p in test_params[t].keys()]), ptarg, ' '.join(['%s:%f'%(p, regression[p]) for p in regression.keys()]), incorrect_ck[ici], ' '.join(['%0.4f'%(dis) for dis in dbd[incorrect_ck[ici]]])))
     return
 
+#evaluate regression
+# This function simply evaluates the appropriate regression objects for each curve in a list of unlabeled curvs
+# Arguents:
+#   curves: an array of curves to be evaluated
+#   classes: the list of predicted classes for thos curves
+#   regressors: the dictionary of dictionaries mapping morphologies to structural parameters to regresoin objects
+#   args: the argument object containing user specified parameters
+# Returns:
+#   predictions: a list of dictionaries mapping each curves to a prediction for each structural parameter
 def evaluate_regression(curves, classes, regressors, args):
     predictions = []
     for i in range(curves.shape[0]):
@@ -120,9 +182,14 @@ def evaluate_regression(curves, classes, regressors, args):
 
 # REORDER this helper function sets a list back to the original order, because the way the hierarchical model shifts the order.
 # this is a stop gap in v 1.0 I've already smoothed this over and made it easier to use. and the user never needs to acknowledge the ordering or reordering.
+# Arguments:
+#   vals: the values to be unshuffles
+#   mapped_inds: the originalindices shuffled the same 
 def reorder(vals, mapped_inds):
     return(vals[np.argsort(mapped_inds)])
 
+#read params
+# returns a list of all unique structural parameters in all regression objects
 def read_params(regressors):
     params = []
     for _, pdict in regressors.items():
@@ -133,8 +200,10 @@ def read_params(regressors):
 
 
 def main():
+    #read in arguments
     args = parse_args()
     targets = args.targets
+    #load all data and instantiate regrssdion objects
     qs = np.loadtxt(join_path(args.datadir, 'q_200.txt'),dtype=str)
     q = loaders.load_q(args.datadir)
     train_curves = loaders.load_all_curves(targets, q, args.datadir)
@@ -148,25 +217,31 @@ def main():
     if args.extrapolation:
         test_curves, test_params = loaders.extrapolation_only(test_curves, test_params)
 
+    # construct hierarchical struture
     ssf = open(join_path(args.configdir, args.hierarchy_file), 'r')
     struct_strings = ssf.readline().split()
 
+    #train regression
     regressors = train_all_regression(train_curves, train_params, regressors)
+    #reformat data insot single long arrays
     temp_ck_dict = loaders.load_all_params(args.targets, ['candidate key'], args.datadir, prefix='TEST')
     ck_dict = {t : temp_ck_dict[t]['candidate key'] for t in args.targets}
     ck, _ = loaders.concatenate_curves(ck_dict)
-    
-
     curves, labels, _ = loaders.unravel_dict(train_curves, args.targets)
     tcurves, tlabels, tmap = loaders.unravel_dict(test_curves, args.targets)
+    #instantiate and trainhierarchical model
     classifiers = hier.create_classifiers(struct_strings, gamma_norm)
     hierarchical_map, decisions = hierarchical_definition()
     hierarchical = hier.create_hierarchical(classifiers, decisions, curves, labels)
+    #predict classification of test data and output classification report
     preds, mapped_labs, mapped_inds, mapped_keys, dbd = hier.eval_hierarchical(classifiers, hierarchical_map, tcurves, tlabels, ck, True)
     print(CR(tlabels, preds[np.argsort(mapped_inds)]))
     resfile = open(join_path(args.resultsdir, 'classification_results.txt'), 'w')
     resfile.write(CR(tlabels, preds[np.argsort(mapped_inds)]))
+    #pass test data through regression objects and save data
     compare_regression(regressors, targets, mapped_labs, mapped_inds, mapped_keys, dbd, preds, test_curves, test_params, tmap, args)
+
+    # if testing on other unlabeled data, read, classify, regress, and report
     if args.evaluate_file is not None:
         ecurves = loaders.load_txt(args.evaluate_file)
         eck = np.array(['eval%d'%(i) for i in range(curves.shape[0])])
