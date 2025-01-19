@@ -1,3 +1,7 @@
+#AutmoatedSAS v0.1.1
+#Author: Graham Roberts
+
+#hierarchical.py a set of functions for constructing and utilizing the hierarchical classifier
 import numpy as np
 from sklearn.model_selection import StratifiedKFold
 import argparse

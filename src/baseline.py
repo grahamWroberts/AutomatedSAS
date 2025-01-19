@@ -1,3 +1,7 @@
+#AutomatedSAS v0.1.1
+#Author Graham Roberts
+
+#baselines.py a script for training and evaluating a set of baseline models provided by scikit-learn to compare performance against
 import argparse
 import numpy as np
 from sklearn.linear_model import RidgeClassifier

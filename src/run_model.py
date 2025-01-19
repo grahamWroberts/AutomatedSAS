@@ -1,3 +1,7 @@
+#AutomatedSAS v0.1.1
+#Author: Graham Roberts
+
+#run_model.py a script for training and evaluating the full hierarchical classifier
 import numpy as np
 import pandas as pd
 import sys
