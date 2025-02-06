@@ -50,21 +50,21 @@ The arguments are as follows:
 - extrapolation: A flag for whether to test on all test data or only test data with aspect ratio or shell ratio outside the range of training data.
 
 ####parameters for svc
-    - c: the c regularization parameter
-    - degree: the degree of polynomial if using polynomial kernel
-    - gamma: a kernel coefficient, normalized by 1/number of features
-    - kernel: which kind of kernel to use, such as 'poly' for polynomial or 'rbf' for radial basis function.
-    - coeff0: the coefficient for the intercept of the polynomial
+- c: the c regularization parameter
+- degree: the degree of polynomial if using polynomial kernel
+- gamma: a kernel coefficient, normalized by 1/number of features
+- kernel: which kind of kernel to use, such as 'poly' for polynomial or 'rbf' for radial basis function.
+- coeff0: the coefficient for the intercept of the polynomial
 
 ####parameters for knn
-    - k: the number of neighbors to use for classification
-    - weight: in ['uniform', 'distance'] whether or not to weight the votes from neighbors depending on distance
+- k: the number of neighbors to use for classification
+- weight: in ['uniform', 'distance'] whether or not to weight the votes from neighbors depending on distance
 
 ####parameters for random-forest
-    - n_est: the number of estmators
-    - rfcriterion: the criterion on which to split
-    - max_depth: the maximum depth of the tree
-    - min_samples: the minimum number of samples per split
+- n_est: the number of estmators
+- rfcriterion: the criterion on which to split
+- max_depth: the maximum depth of the tree
+- min_samples: the minimum number of samples per split
 
 ### k_fold
 As described in the accompanying paper we opted to perform k_fold with an inverted number of training and validation data.
