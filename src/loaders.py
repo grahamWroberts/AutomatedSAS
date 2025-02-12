@@ -166,3 +166,25 @@ def extrapolation_only(curves, params, aspect_ratio_cutoff = 8, shell_ratio_cuto
         newcurves[t] = curves[t][valid]
         newparams[t] = {p:params[t][p][valid] for p in params[t].keys()}
     return(newcurves, newparams)
+
+#remap external
+#This function is for preprocessing experimental urves drawn from other sources
+#It takes some curve mapped to arbitrary q values and interpolates/extrapolates onto the q values expected by the model.
+#Note that when extrapolating it simply takes either the last value further out or the first value prior as curves tend to plateau in these regions. It is reccomended to extrapolate as little as possible.
+#ARGS: q: the array of q values expected by the ML models
+#  exp_q: The array of q values the external curve is already measured at
+#  exp_I: The array of intensity values measured at the q values in exp_q
+#RETURN: A new curve in log space estimated at the q values specified in the first argument
+def remap_external(q, exp_q, exp_I):
+    interim = np.where(np.logical_and(np.less_equal(q, np.max(exp_q)), np.greater_equal(q, np.min(exp_q))))[0]
+    new_curve = np.zeros(q.shape)
+    new_curve[interim] = np.interp(q[interim], exp_q, exp_I)
+    if interim[-1] < len(q)-1:
+        cutoff = interim[-1]
+        new_curve[cutoff+1:] = new_curve[cutoff]
+    if np.min(interim) > 0:
+        cutoff = interim[0]
+        new_curve[:cutoff] = new_curve[cutoff]
+    scaled_curve = scale_highq(np.log10(new_curve), 0.001)
+    return(new_curve)
+
