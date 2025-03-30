@@ -6,6 +6,16 @@ import numpy as np
 import pandas as pd
 from os.path import join as join_path
 
+# quotient transform
+# This is a technique employed in Yildirim "SASFormer"
+# S(q_i) = I(q_i)/I(q_{i+1})
+def quotient_transform(I):
+    if I.ndim == 1:
+        S = I[:-1]/I[1:]
+    else:
+        S = I[:,1:]/I[:,:-1]
+    return(S)
+
 # load curves
 # reads a curve from a pandas dataframe csv and formats it
 # Arguments:
@@ -13,12 +23,16 @@ from os.path import join as join_path
 #  q: an a rray of q values of the curve in string form which ar the column header of the dataframe
 # Returns:
 #  curves: an array on [n_curves, n_features] of all the curves
-def load_curves(fn, q):
+def load_curves(fn, q, quotient = False):
    if type(fn) == str:
     indf = pd.DataFrame(pd.read_csv(fn))
    else:
     indf = fn
-   curves = scale_highq(np.log10(np.array(indf.loc[:,q])+1),0.001)
+   if not quotient:
+      #curves = scale_highq(np.log10(np.array(indf.loc[:,q])),0.001)
+      curves = scale_highq(np.log10(np.array(indf.loc[:,q])+1),-3.)
+   else:
+       curves = quotient_transform(np.array(indf.loc[:,q]))
    #curves = np.log10(np.array(indf.loc[:,q])+0.001)
    return(curves)
 
@@ -55,7 +69,7 @@ def load_params(fn, colnames):
 def scale_highq(curves, incoherence):
    new_curves = curves.copy()
    for i in range(curves.shape[0]):
-       new_curves[i] = curves[i] -np.mean(curves[i,-2:])+incoherence
+       new_curves[i] = curves[i] -np.mean(curves[i,-10:])+incoherence
    return(new_curves)
 
 #load_q
@@ -73,13 +87,13 @@ def load_q(datadir, qfile = 'q_200.txt'):
 #   prefix: either TRAIN or TEST, which deliniates which dataset is to be loaded
 # Return:
 # all_curve: a dictionary mapping each morphology to an array
-def load_all_curves(targets, q, datadir, prefix='TRAIN'):
+def load_all_curves(targets, q, datadir, prefix='TRAIN', quotient=False):
    all_curve = {}
    maxval = 0
    for t in targets:
       fn = join_path(datadir, '%s_%s.csv'%(prefix, t))
       df = pd.DataFrame(pd.read_csv(fn))
-      curve = load_curves(df, q)
+      curve = load_curves(df, q, quotient)
       all_curve[t] = curve
    return(all_curve)
 
@@ -91,9 +105,12 @@ def load_all_curves(targets, q, datadir, prefix='TRAIN'):
 #   filename: the path to the file
 #   incoherence: a now background to scale the data to to make it similar to simlated data with a background at incoherence
 #   blur: a noise value which is added to the raw form of the curves
-def load_txt(filename, incoherrence = 0.001, blur = 1.0):
+def load_txt(filename, incoherrence = -3, blur = 1.0):
     infile = np.loadtxt(filename)
-    curves = scale_highq(np.log10(infile+1),incoherrence)
+#    infile[0,:] += 1e1
+#    infile[6,:] += 1e-3
+    #curves = np.log10(infile)
+    curves = scale_highq(np.log10(infile),incoherrence)
     return(curves)
 
 
@@ -185,6 +202,6 @@ def remap_external(q, exp_q, exp_I):
     if np.min(interim) > 0:
         cutoff = interim[0]
         new_curve[:cutoff] = new_curve[cutoff]
-    scaled_curve = scale_highq(np.log10(new_curve), 0.001)
+    scaled_curve = scale_highq(np.log10(new_curve), -3)
     return(new_curve)
 

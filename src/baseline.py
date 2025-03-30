@@ -8,7 +8,7 @@ from sklearn.linear_model import RidgeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier 
 from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, classification_report
 from sklearn.model_selection import StratifiedKFold as KFold
 
 import loaders
@@ -61,15 +61,16 @@ def main():
 
    #The section reads in a fully separate test set, trains the predictor on all available training data and then calculates the accuracy on the test set. All classes have equal representation in the test set so accuracy is a valid metric to use.
    if args.test is True:
-      test_curves = loaders.load_all_curves(args.targets, q, args.datadir, prefix = 'TEST')
+      test_curves = loaders.load_all_curves(args.targets, q, args.datadir, prefix = 'SCALE')
       if args.extrapolation:
-          test_params = loaders.load_all_params(args.targets, ['aspect_ratio', 'shell_ratio'], args.datadir, prefix = 'TEST')
+          test_params = loaders.load_all_params(args.targets, ['aspect_ratio', 'shell_ratio'], args.datadir, prefix = 'SCALE')
           test_curves, test_params = loaders.extrapolation_only(test_curves, test_params)
       tcurves, tlabels, tmap = loaders.unravel_dict(test_curves, args.targets)
       predictor.fit(curves, labels)
       predictions = predictor.predict(tcurves)
       print(predictor)
       print("%s ACCURACY: %0.3f"%(outkey, accuracy_score(tlabels, predictions)))
+      print(classification_report(tlabels, predictions))
 
    else:
       #THIS is a modified k_fold that utilizes more data for validation than training. This helps ensure that a simppler model that is more extrapolable is selected as opposed to the risked everfitting with large amounts of training data and small amounts of validation data on which to evaluate it

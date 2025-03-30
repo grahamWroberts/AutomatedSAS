@@ -1,0 +1,240 @@
+--alpha 0.010000 --gamma 0.100000 --kernel rbf --coef0 0.000000
+--alpha 0.010000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 0.010000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 0.010000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 0.010000 --gamma 0.100000 --kernel rbf --coef0 1.000000
+--alpha 0.010000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 0.010000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 0.010000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 0.010000 --gamma 0.100000 --kernel rbf --coef0 5.000000
+--alpha 0.010000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 0.010000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 0.010000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 0.010000 --gamma 1.000000 --kernel rbf --coef0 0.000000
+--alpha 0.010000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 0.010000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 0.010000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 0.010000 --gamma 1.000000 --kernel rbf --coef0 1.000000
+--alpha 0.010000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 0.010000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 0.010000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 0.010000 --gamma 1.000000 --kernel rbf --coef0 5.000000
+--alpha 0.010000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 0.010000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 0.010000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 0.010000 --gamma 10.000000 --kernel rbf --coef0 0.000000
+--alpha 0.010000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 0.010000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 0.010000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 0.010000 --gamma 10.000000 --kernel rbf --coef0 1.000000
+--alpha 0.010000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 0.010000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 0.010000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 0.010000 --gamma 10.000000 --kernel rbf --coef0 5.000000
+--alpha 0.010000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 0.010000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 0.010000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 0.010000 --gamma 100.000000 --kernel rbf --coef0 0.000000
+--alpha 0.010000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 0.010000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 0.010000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 0.010000 --gamma 100.000000 --kernel rbf --coef0 1.000000
+--alpha 0.010000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 0.010000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 0.010000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 0.010000 --gamma 100.000000 --kernel rbf --coef0 5.000000
+--alpha 0.010000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 0.010000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 0.010000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 0.100000 --gamma 0.100000 --kernel rbf --coef0 0.000000
+--alpha 0.100000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 0.100000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 0.100000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 0.100000 --gamma 0.100000 --kernel rbf --coef0 1.000000
+--alpha 0.100000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 0.100000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 0.100000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 0.100000 --gamma 0.100000 --kernel rbf --coef0 5.000000
+--alpha 0.100000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 0.100000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 0.100000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 0.100000 --gamma 1.000000 --kernel rbf --coef0 0.000000
+--alpha 0.100000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 0.100000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 0.100000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 0.100000 --gamma 1.000000 --kernel rbf --coef0 1.000000
+--alpha 0.100000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 0.100000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 0.100000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 0.100000 --gamma 1.000000 --kernel rbf --coef0 5.000000
+--alpha 0.100000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 0.100000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 0.100000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 0.100000 --gamma 10.000000 --kernel rbf --coef0 0.000000
+--alpha 0.100000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 0.100000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 0.100000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 0.100000 --gamma 10.000000 --kernel rbf --coef0 1.000000
+--alpha 0.100000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 0.100000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 0.100000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 0.100000 --gamma 10.000000 --kernel rbf --coef0 5.000000
+--alpha 0.100000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 0.100000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 0.100000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 0.100000 --gamma 100.000000 --kernel rbf --coef0 0.000000
+--alpha 0.100000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 0.100000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 0.100000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 0.100000 --gamma 100.000000 --kernel rbf --coef0 1.000000
+--alpha 0.100000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 0.100000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 0.100000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 0.100000 --gamma 100.000000 --kernel rbf --coef0 5.000000
+--alpha 0.100000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 0.100000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 0.100000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 1.000000 --gamma 0.100000 --kernel rbf --coef0 0.000000
+--alpha 1.000000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 1.000000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 1.000000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 1.000000 --gamma 0.100000 --kernel rbf --coef0 1.000000
+--alpha 1.000000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 1.000000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 1.000000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 1.000000 --gamma 0.100000 --kernel rbf --coef0 5.000000
+--alpha 1.000000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 1.000000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 1.000000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 1.000000 --gamma 1.000000 --kernel rbf --coef0 0.000000
+--alpha 1.000000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 1.000000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 1.000000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 1.000000 --gamma 1.000000 --kernel rbf --coef0 1.000000
+--alpha 1.000000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 1.000000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 1.000000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 1.000000 --gamma 1.000000 --kernel rbf --coef0 5.000000
+--alpha 1.000000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 1.000000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 1.000000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 1.000000 --gamma 10.000000 --kernel rbf --coef0 0.000000
+--alpha 1.000000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 1.000000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 1.000000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 1.000000 --gamma 10.000000 --kernel rbf --coef0 1.000000
+--alpha 1.000000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 1.000000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 1.000000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 1.000000 --gamma 10.000000 --kernel rbf --coef0 5.000000
+--alpha 1.000000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 1.000000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 1.000000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 1.000000 --gamma 100.000000 --kernel rbf --coef0 0.000000
+--alpha 1.000000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 1.000000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 1.000000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 1.000000 --gamma 100.000000 --kernel rbf --coef0 1.000000
+--alpha 1.000000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 1.000000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 1.000000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 1.000000 --gamma 100.000000 --kernel rbf --coef0 5.000000
+--alpha 1.000000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 1.000000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 1.000000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 10.000000 --gamma 0.100000 --kernel rbf --coef0 0.000000
+--alpha 10.000000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 10.000000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 10.000000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 10.000000 --gamma 0.100000 --kernel rbf --coef0 1.000000
+--alpha 10.000000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 10.000000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 10.000000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 10.000000 --gamma 0.100000 --kernel rbf --coef0 5.000000
+--alpha 10.000000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 10.000000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 10.000000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 10.000000 --gamma 1.000000 --kernel rbf --coef0 0.000000
+--alpha 10.000000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 10.000000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 10.000000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 10.000000 --gamma 1.000000 --kernel rbf --coef0 1.000000
+--alpha 10.000000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 10.000000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 10.000000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 10.000000 --gamma 1.000000 --kernel rbf --coef0 5.000000
+--alpha 10.000000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 10.000000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 10.000000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 10.000000 --gamma 10.000000 --kernel rbf --coef0 0.000000
+--alpha 10.000000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 10.000000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 10.000000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 10.000000 --gamma 10.000000 --kernel rbf --coef0 1.000000
+--alpha 10.000000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 10.000000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 10.000000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 10.000000 --gamma 10.000000 --kernel rbf --coef0 5.000000
+--alpha 10.000000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 10.000000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 10.000000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 10.000000 --gamma 100.000000 --kernel rbf --coef0 0.000000
+--alpha 10.000000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 10.000000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 10.000000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 10.000000 --gamma 100.000000 --kernel rbf --coef0 1.000000
+--alpha 10.000000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 10.000000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 10.000000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 10.000000 --gamma 100.000000 --kernel rbf --coef0 5.000000
+--alpha 10.000000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 10.000000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 10.000000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 100.000000 --gamma 0.100000 --kernel rbf --coef0 0.000000
+--alpha 100.000000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 100.000000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 100.000000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 100.000000 --gamma 0.100000 --kernel rbf --coef0 1.000000
+--alpha 100.000000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 100.000000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 100.000000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 100.000000 --gamma 0.100000 --kernel rbf --coef0 5.000000
+--alpha 100.000000 --gamma 0.100000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 100.000000 --gamma 0.100000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 100.000000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 100.000000 --gamma 1.000000 --kernel rbf --coef0 0.000000
+--alpha 100.000000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 100.000000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 100.000000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 100.000000 --gamma 1.000000 --kernel rbf --coef0 1.000000
+--alpha 100.000000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 100.000000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 100.000000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 100.000000 --gamma 1.000000 --kernel rbf --coef0 5.000000
+--alpha 100.000000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 100.000000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 100.000000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 100.000000 --gamma 10.000000 --kernel rbf --coef0 0.000000
+--alpha 100.000000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 100.000000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 100.000000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 100.000000 --gamma 10.000000 --kernel rbf --coef0 1.000000
+--alpha 100.000000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 100.000000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 100.000000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 100.000000 --gamma 10.000000 --kernel rbf --coef0 5.000000
+--alpha 100.000000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 100.000000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 100.000000 --gamma 10.000000 --kernel polynomial --degree 4 --coef0 5.000000
+--alpha 100.000000 --gamma 100.000000 --kernel rbf --coef0 0.000000
+--alpha 100.000000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 0.000000
+--alpha 100.000000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--alpha 100.000000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--alpha 100.000000 --gamma 100.000000 --kernel rbf --coef0 1.000000
+--alpha 100.000000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--alpha 100.000000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 1.000000
+--alpha 100.000000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 1.000000
+--alpha 100.000000 --gamma 100.000000 --kernel rbf --coef0 5.000000
+--alpha 100.000000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--alpha 100.000000 --gamma 100.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--alpha 100.000000 --gamma 100.000000 --kernel polynomial --degree 4 --coef0 5.000000

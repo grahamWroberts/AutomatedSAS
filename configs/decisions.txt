@@ -1,0 +1,5 @@
+cylinder disk cs_cylinder cs_disk <-> sphere cs_sphere
+sphere <-> cs_sphere
+cylinder disk <-> cs_cylinder cs_disk
+cylinder <-> disk
+cs_cylinder <-> cs_disk

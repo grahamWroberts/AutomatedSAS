@@ -17,19 +17,24 @@ from sklearn.kernel_ridge import KernelRidge as KRR
 from sklearn.metrics import r2_score
 from sklearn.metrics import mean_absolute_percentage_error as MAPE
 import hierarchical as hier
+from mapie.regression import MapieRegressor
+from mapie.metrics import regression_coverage_score, regression_mean_width_score
+import time
 
 #parse args
 #reads in option flags when script is invoked
 def parse_args():
    parser = argparse.ArgumentParser()
    parser.add_argument('--targets', default = ['cylinder', 'disk', 'sphere', 'cs_cylinder', 'cs_disk', 'cs_sphere'], nargs = '+')
-   parser.add_argument('--datadir', default = '../example_data', help = 'the directory where the raw data are stored')
+   parser.add_argument('--datadir', default = './data', help = 'the directory where the raw data are stored')
    parser.add_argument('--configdir', default = '../configs', help = 'the directory where the configuration files for the classifier and regressor are stored')
    parser.add_argument('--resultsdir', default = '../results', help = 'the directory where results and logs will be stored')
-   parser.add_argument('--hierarchy_file', default="hierarchical_structure2.txt")
+   parser.add_argument('--hierarchy_file', default="hierarchical_structure.txt")
    parser.add_argument('--reg_file', type = str, default='krr_hyperparameters.txt')
-   parser.add_argument('--extrapolation', type=bool,default=True)
+   parser.add_argument('--extrapolation', type=bool,default=False)
    parser.add_argument('--evaluate_file', type=str, default=None, help='a file containing curves to predict, this is where to pass new curves without labels to evaluate')
+   parser.add_argument('--quotient', type=bool, default=False)
+   parser.add_argument('--uncertainty', type=bool, default = False)
    return(parser.parse_args())
    
 #construct regressor
@@ -120,6 +125,16 @@ def hierarchical_definition():
     hierarchical_map = [{0:2,1:1},{0:'2',1:'5'},{0:3,1:4},{0:'0',1:'1'},{0:'3',1:'4'}]
     return(hierarchical_map, decisions)
 
+def calibrate_regression_UQ(regressors, X_cal, y_cal):
+    uncertainty_regressors = {}
+    for t in regressors.keys():
+        uncertainty_regressors[t] = {}
+        for p in regressors[t].keys():
+           mapie = MapieRegressor(regressors[t][p], test_size = 0.3, method = "plus", cv=10)
+           mapie.fit(X_cal[t], y_cal[t][p])
+           uncertainty_regressors[t][p] = mapie
+    return(uncertainty_regressors)
+
 # compare regression is a large function that does many things
 # taking the predicted labels from the classifier it passes each test curve to the respective set of regression objects
 # it then writes out a set of files to compare the predicted and labeled parameter values for each curve
@@ -153,7 +168,7 @@ def compare_regression(regressors, targets, mapped_labs, mapped_inds, mapped_key
             oc = original_correct[oci]
             correct_file.write('%d TRUE %s REGRESSED %s\n'%(oc, ' '.join(['%s:%f'%(p, test_params[t][p][oc]) for p in test_params[t].keys()]), ' '.join(['%s:%f'%(p, correct_regs[p][oci]) for p in correct_regs.keys()])))
         correct_file.close()
-        incorrect_file = open(join_path(args.resultsdir, 'incorrect_%s'%(t)), 'w')
+        incorrect_file = open(join_path(args.resultsdir, 'incorrect_%s.txt'%(t)), 'w')
         original_incorrect = tmap[mapped_inds[incorrect_inds].astype(int)]
         incorrect_ck = mapped_keys[incorrect_inds]
         incorrect_curves = test_curves[args.targets[i]][original_incorrect]
@@ -183,6 +198,26 @@ def evaluate_regression(curves, classes, regressors, args):
         predictions += [{p: regs[p].predict(c) for p in regs.keys()}]
     return(predictions)
 
+def evaluate_UQ(curves, classes, uncertainty_regressors, args):
+    predictions = []
+    mins = []
+    maxs = []
+    for i in range(curves.shape[0]):
+        t = classes[i]
+        regs = uncertainty_regressors[t]
+        c = curves[i].reshape(1,-1)
+        preds = {}
+        temp_mins = {}
+        temp_maxs = {}
+        for p in regs.keys():
+            preds[p], uq_bounds = regs[p].predict(c, alpha = 0.1)
+            temp_mins[p] = uq_bounds[0,0,0]
+            temp_maxs[p] = uq_bounds[0,1,0]
+        predictions += [preds]
+        mins += [temp_mins]
+        maxs += [temp_maxs]
+    return(predictions, mins, maxs)
+
 
 # REORDER this helper function sets a list back to the original order, because the way the hierarchical model shifts the order.
 # this is a stop gap in v 1.0 I've already smoothed this over and made it easier to use. and the user never needs to acknowledge the ordering or reordering.
@@ -203,15 +238,15 @@ def read_params(regressors):
     return(params)
 
 
-def main():
+def main(args):
     #read in arguments
-    args = parse_args()
+    #args = parse_args()
     targets = args.targets
     #load all data and instantiate regrssdion objects
     qs = np.loadtxt(join_path(args.datadir, 'q_200.txt'),dtype=str)
     q = loaders.load_q(args.datadir)
-    train_curves = loaders.load_all_curves(targets, q, args.datadir)
-    test_curves = loaders.load_all_curves(args.targets, q, args.datadir, prefix = 'TEST')
+    train_curves = loaders.load_all_curves(targets, q, args.datadir, quotient = args.quotient)
+    test_curves = loaders.load_all_curves(args.targets, q, args.datadir, prefix = 'TEST', quotient = args.quotient)
     gamma_norm = train_curves[args.targets[0]].shape[1]
     regressors = construct_regressor(join_path(args.configdir, args.reg_file), gamma_norm)
     param_list = read_params(regressors)
@@ -224,21 +259,26 @@ def main():
     # construct hierarchical struture
     ssf = open(join_path(args.configdir, args.hierarchy_file), 'r')
     struct_strings = ssf.readline().split()
-
-    #train regression
-    regressors = train_all_regression(train_curves, train_params, regressors)
-    #reformat data insot single long arrays
     temp_ck_dict = loaders.load_all_params(args.targets, ['candidate key'], args.datadir, prefix='TEST')
     ck_dict = {t : temp_ck_dict[t]['candidate key'] for t in args.targets}
     ck, _ = loaders.concatenate_curves(ck_dict)
     curves, labels, _ = loaders.unravel_dict(train_curves, args.targets)
+    print("CURVES %d %d"%(curves.shape[0], curves.shape[1]))
     tcurves, tlabels, tmap = loaders.unravel_dict(test_curves, args.targets)
+
+    #train regression
+    start_train = time.time()
+    regressors = train_all_regression(train_curves, train_params, regressors)
+    #reformat data insot single long arrays
     #instantiate and trainhierarchical model
     classifiers = hier.create_classifiers(struct_strings, gamma_norm)
     hierarchical_map, decisions = hierarchical_definition()
     hierarchical = hier.create_hierarchical(classifiers, decisions, curves, labels)
     #predict classification of test data and output classification report
+    start_eval = time.time()
     preds, mapped_labs, mapped_inds, mapped_keys, dbd = hier.eval_hierarchical(classifiers, hierarchical_map, tcurves, tlabels, ck, True)
+    end_eval = time.time()
+    print("Training complete - training took %0.2f s - evaluation took %0.2f s Accuracy %f"%(start_eval - start_train, end_eval - start_eval, AS(tlabels, preds[np.argsort(mapped_inds)])))
     print(CR(tlabels, preds[np.argsort(mapped_inds)]))
     resfile = open(join_path(args.resultsdir, 'classification_results.txt'), 'w')
     resfile.write(CR(tlabels, preds[np.argsort(mapped_inds)]))
@@ -253,14 +293,35 @@ def main():
         epreds, _, emapped_inds, emapped_keys, _ = hier.eval_hierarchical(classifiers, hierarchical_map, ecurves, elabels, eck, False)
         epreds = [targets[int(i)] for i in reorder(epreds, emapped_inds)]
         ekeys = reorder(eck, emapped_inds)
-        predpars = evaluate_regression(ecurves, epreds, regressors, args)
         evalfile = open(join_path(args.resultsdir, 'predictions.txt'), 'w')
-        for i in range(len(epreds)):
-            p = predpars[i]
-            evalfile.write('%s %s\n'%(epreds[i], ' '.join(['%s:%s'%(k, p[k][0]) for k in p.keys()])))
+        if args.uncertainty is False:
+           predpars = evaluate_regression(ecurves, epreds, regressors, args)
+           for i in range(len(epreds)):
+              p = predpars[i]
+              evalfile.write('%s %s\n'%(epreds[i], ' '.join(['%s:%s'%(k, p[k][0]) for k in p.keys()])))
+        else:
+           cal_curves = loaders.load_all_curves(targets, q, args.datadir, quotient = args.quotient, prefix = 'CALIBRATE')
+           cal_params = loaders.load_all_params(targets, extrap_params, args.datadir, prefix = 'CALIBRATE')
+           uq = calibrate_regression_UQ(regressors, cal_curves, cal_params)
+           predpars, mins, maxs = evaluate_UQ(ecurves, epreds, uq, args)
+           for i in range(len(epreds)):
+              p = predpars[i]
+              m = mins[i]
+              M = maxs[i]
+              print(m)
+              print(p)
+              print(M)
+              evalfile.write('%s %s\n'%(epreds[i], ' '.join(['%s:[%s < %s < %s]'%(k, m[k], p[k][0], M[k]) for k in p.keys()])))
+
+
+           #mapie.fit(X_cal, y_cal.reshape(-1,1))
+           #mapie = MapieRegressor(estimator, test_size = 0.2, method = "plus", cv=10)
+           #pred, pred_pis = mapie.predict(X_test, alpha = 0.05)
+           
         
 
 
 
 if __name__ == '__main__':
-    main()
+    args = parse_args()
+    main(args)

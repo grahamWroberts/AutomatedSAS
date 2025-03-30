@@ -1,0 +1,13 @@
+--target cylinder --param radius --alpha 0.100000 --gamma 100.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--target cylinder --param length --alpha 0.010000 --gamma 10.000000 --kernel polynomial --degree 3 --coef0 5.000000
+--target disk --param radius --alpha 0.010000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 5.000000
+--target disk --param length --alpha 0.100000 --gamma 10.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--target sphere --param radius --alpha 0.010000 --gamma 100.000000 --kernel rbf --coef0 0.000000
+--target cs_cylinder --param radius --alpha 0.010000 --gamma 1.000000 --kernel polynomial --degree 3 --coef0 0.000000
+--target cs_cylinder --param length --alpha 10.000000 --gamma 1.000000 --kernel polynomial --degree 4 --coef0 0.000000
+--target cs_cylinder --param shell --alpha 100.000000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--target cs_disk --param radius --alpha 0.010000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 5.000000
+--target cs_disk --param length --alpha 0.010000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 5.000000
+--target cs_disk --param shell --alpha 100.000000 --gamma 1.000000 --kernel polynomial --degree 2 --coef0 1.000000
+--target cs_sphere --param radius --alpha 0.010000 --gamma 0.100000 --kernel polynomial --degree 4 --coef0 0.000000
+--target cs_sphere --param shell --alpha 0.010000 --gamma 10.000000 --kernel rbf --coef0 0.000000
