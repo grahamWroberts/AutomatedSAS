@@ -78,8 +78,10 @@ If using the methods described here please cite as
 @unpublished{
     author={Graham Roberts, Mu-Ping Nieh, Anson Ma, and Qian Yang}
     title = {Automated Structure Analysis of Small Angle Scattering Data via Machine Learning},
-    month={December}
+    month={December},
     year={2024},
+    DOI={10.26434/chemrxiv-2024-ggnch},
+    publisher={ChemRxiv}
 }
 
 ##Contributing
