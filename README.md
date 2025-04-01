@@ -75,12 +75,11 @@ This essentially is a form of implicit regularization, looking for models that o
 
 ## Citing
 If using the methods described here please cite as 
-@article{
+@unpublished{
     author={Graham Roberts, Mu-Ping Nieh, Anson Ma, and Qian Yang}
     title = {Automated Structure Analysis of Small Angle Scattering Data via Machine Learning},
-    journal = {Digial Discovery},
-    year={2025},
-    publisher={RSC},
+    month={December}
+    year={2024},
 }
 
 ##Contributing
