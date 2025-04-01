@@ -72,3 +72,16 @@ The data is split into k folds.
 For each fold the model is trained on that fold and evaluated on all other folds.
 This leads to lower performance on validation, but selects a model that when trained on all data performs well on test data.
 This essentially is a form of implicit regularization, looking for models that on small data can still perform moderately well in generalization.
+
+## Citing
+If using the methods described here please cite as 
+@article{
+    author={Graham Roberts, Mu-Ping Nieh, Anson Ma, and Qian Yang}
+    title = {Automated Structure Analysis of Small Angle Scattering Data via Machine Learning},
+    journal = {Digial Discovery},
+    year={2025},
+    publisher={RSC},
+}
+
+##Contributing
+Please reach out by Email if you would like to contribute to this effort, either at graham.roberts@uconn.edu (lead developer) or qyang@uconn.edu (principal investigator)
