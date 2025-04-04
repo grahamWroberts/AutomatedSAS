@@ -8,6 +8,24 @@ Associated paper (preprint): Roberts G, Nieh M-P, Ma A, Yang Q. Automated Struct
 
 Summary: This repository contains a set of tools and tests for conducting automated SAS analysis via a custom hierarchical ML classifier and a ML regression model.
 
+## Installation
+If using [conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) run 
+ 1. conda env create -f environment.yaml
+ 2. conda activate autosas
+ 3. python -m pip install -e .
+
+If not using conda you can use pip
+pip install --user numpy==1.24.3
+The following packages and versions have been tested to work.
+ |:---|:---|
+ |module| version used|
+ |numpy|1.24.3|
+ |scikit-learn|1.2.2|
+ |pandas|2.0.2|
+ |argparse|1.1|
+ |mapie|0.9.2|
+ |matplotlib|3.7.1|
+
 ## Key files:
 
  1.  run_model.py - parses a set of arguments to construct a hierarchical classification model, and calculates its performance on test data  
