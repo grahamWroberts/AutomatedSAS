@@ -1,3 +1,7 @@
+
+
+[![DOI](https://zenodo.org/badge/916675399.svg)](https://doi.org/10.5281/zenodo.15283676)
+
 #AutomatedSAS - V1.0.0
 
 Author: Graham Roberts
